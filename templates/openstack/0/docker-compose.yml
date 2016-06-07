@@ -20,6 +20,7 @@ openstackcontroller:
         OPENSTACK_INTERNAL_VIP_ADDRESS: "${openstack_internal_vip_address}"
         OPENSTACK_API_INTERFACE: "${openstack_api_interface}"
         OPENSTACK_NEUTRON_INTERFACE: "${openstack_neutron_interface}"
+        ANSIBLE_PRIVATE_SSH_KEY: "${ansible_private_ssh_key}"
 openstackinventory:
     image: cloudnautique/kolla-base:mitaka
     volumes_from:
@@ -46,3 +47,5 @@ openstackcompute:
     stdin_open: true
     tty: true
     command: bash
+    environment:
+        ANSIBLE_PUBLIC_SSH_KEY: "${ansible_public_ssh_key}"

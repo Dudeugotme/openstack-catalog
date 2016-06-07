@@ -20,3 +20,15 @@
           description: |
               This is the network interface for Neutron network
           label: "Neutron Network Interface"
+        - variable: "ansible_private_ssh_key"
+          type: textfield
+          required: true
+          description: |
+              private SSH key to use for Ansible
+          label: Private SSH Key
+        - variable: "ansible_public_ssh_key"
+          type: textfield
+          required: true
+          description: |
+              public SSH key to use for Ansible
+          label: Public SSH Key
