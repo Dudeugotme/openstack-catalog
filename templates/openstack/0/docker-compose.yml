@@ -15,7 +15,7 @@ openstackcontroller:
         - /usr/local/share/kolla
     stdin_open: true
     tty: true
-    command: bash
+    command: /run.sh controller
     environment:
         OPENSTACK_INTERNAL_VIP_ADDRESS: "${openstack_internal_vip_address}"
         OPENSTACK_API_INTERFACE: "${openstack_api_interface}"
@@ -54,6 +54,6 @@ openstackcompute:
         - /usr/local/share/kolla
     stdin_open: true
     tty: true
-    command: bash
+    command: /run.sh
     environment:
         ANSIBLE_PUBLIC_SSH_KEY: "${ansible_public_ssh_key}"
