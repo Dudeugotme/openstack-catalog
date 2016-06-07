@@ -4,14 +4,45 @@ openstackcontroller:
     net: host
     labels:
         io.rancher.scheduler.affinity:host_label: openstack=controller
+        io.rancher.sidekicks: openstackinventory
         io.rancher.container.start_once: "true"
+        io.rancher.container.dns: true
     volumes:
         - /run:/host/run
         - /proc:/host/proc
         - /:/host
         - /var/run/docker.sock:/var/run/docker.sock
-    command: bash -x /run.sh
+        - /usr/local/share/kolla
+    stdin_open: true
+    tty: true
+    command: bash
     environment:
         OPENSTACK_INTERNAL_VIP_ADDRESS: "${openstack_internal_vip_address}"
         OPENSTACK_API_INTERFACE: "${openstack_api_interface}"
         OPENSTACK_NEUTRON_INTERFACE: "${openstack_neutron_interface}"
+openstackinventory:
+    image: cloudnautique/kolla-base:mitaka
+    volumes_from:
+        openstackcontroller
+    command: bash
+    stdin_open: true
+    tty: true
+
+
+openstackcompute:
+    image: cloudnautique/kolla-base:mitaka
+    privileged: true
+    net: host
+    labels:
+        io.rancher.scheduler.affinity:host_label: openstack=compute
+        io.rancher.container.start_once: "true"
+        io.rancher.container.dns: true
+    volumes:
+        - /run:/host/run
+        - /proc:/host/proc
+        - /:/host
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /usr/local/share/kolla
+    stdin_open: true
+    tty: true
+    command: bash
