@@ -23,7 +23,7 @@ openstackcontroller:
 openstackinventory:
     image: cloudnautique/kolla-base:mitaka
     volumes_from:
-        openstackcontroller
+        - openstackcontroller
     command: bash
     stdin_open: true
     tty: true
