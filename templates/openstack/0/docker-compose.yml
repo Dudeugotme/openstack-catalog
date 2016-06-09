@@ -7,9 +7,9 @@ openstackcontroller:
         io.rancher.sidekicks: openstackinventory
         io.rancher.container.start_once: "true"
         io.rancher.container.dns: true
+    pid: host
     volumes:
         - /run:/host/run
-        - /proc:/host/proc
         - /etc/kolla
         - /:/host
         - /var/run/docker.sock:/var/run/docker.sock
@@ -43,13 +43,13 @@ openstackcompute:
     image: cloudnautique/kolla-base:mitaka
     privileged: true
     net: host
+    pid: host
     labels:
         io.rancher.scheduler.affinity:host_label: openstack=compute
         io.rancher.container.start_once: "true"
         io.rancher.container.dns: true
     volumes:
         - /run:/host/run
-        - /proc:/host/proc
         - /:/host
         - /etc/kolla
         - /var/run/docker.sock:/var/run/docker.sock
