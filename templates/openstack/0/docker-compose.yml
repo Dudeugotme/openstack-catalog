@@ -10,6 +10,7 @@ openstackcontroller:
     volumes:
         - /run:/host/run
         - /proc:/host/proc
+        - /etc/kolla
         - /:/host
         - /var/run/docker.sock:/var/run/docker.sock
         - /usr/local/share/kolla
@@ -50,6 +51,7 @@ openstackcompute:
         - /run:/host/run
         - /proc:/host/proc
         - /:/host
+        - /etc/kolla
         - /var/run/docker.sock:/var/run/docker.sock
         - /usr/local/share/kolla
     stdin_open: true
