@@ -4,7 +4,6 @@ openstackcontroller:
     net: host
     labels:
         io.rancher.scheduler.affinity:host_label: openstack=controller
-        io.rancher.sidekicks: openstackinventory
         io.rancher.container.start_once: "true"
         io.rancher.container.dns: true
     pid: host
