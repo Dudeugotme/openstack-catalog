@@ -1,5 +1,5 @@
 openstackcontroller:
-    image: cloudnautique/kolla-base:mitaka
+    image: rancher/kolla-base:mitaka
     privileged: true
     net: host
     labels:
@@ -24,7 +24,7 @@ openstackcontroller:
         OPENSTACK_ADMIN_PASSWORD: "${openstack_admin_password}"
         ANSIBLE_PRIVATE_SSH_KEY: "${ansible_private_ssh_key}"
 openstackinventory:
-    image: cloudnautique/kolla-base:mitaka
+    image: rancher/kolla-base:mitaka
     volumes_from:
         - openstackcontroller
     command:
@@ -37,7 +37,7 @@ openstackinventory:
     tty: true
 
 openstackcompute:
-    image: cloudnautique/kolla-base:mitaka
+    image: rancher/kolla-base:mitaka
     privileged: true
     net: host
     pid: host

@@ -9,7 +9,7 @@
           type: string
           required: true
           description: |
-              This is the IP address you want your services to bind to.
+              This is the IP address you want your services to bind to. It should be the primary IP of the controller node.
           label: "Internal VIP address"
         - variable: "openstack_api_interface"
           type: string
