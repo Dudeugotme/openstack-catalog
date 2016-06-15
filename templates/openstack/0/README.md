@@ -32,13 +32,13 @@ A good reference for additional information can be found on the [Kolla Quickstar
  	```
  	 # Create the drop-in unit directory for docker.service
      $ mkdir -p /etc/systemd/system/docker.service.d
-
+     
 	 # Create the drop-in unit file
 	 $ tee /etc/systemd/system/docker.service.d/kolla.conf <<-'EOF'
 	 [Service]
 	 MountFlags=shared
 	 EOF
-
+     
 	 # Run these commands to reload the daemon
 	 $ systemctl daemon-reload
 	 $ systemctl restart docker
