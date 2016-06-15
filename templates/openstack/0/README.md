@@ -16,7 +16,7 @@ A good reference for additional information can be found on the [Kolla Quickstar
         * 40GB disk
         * [Host label](http://docs.rancher.com/rancher/latest/en/rancher-ui/infrastructure/hosts/#host-labels) of `openstack=controller` 
     * N hosts:
-        * >= 4GB RAM
+        * `>= 4GB` RAM
         * 40GB disk
         * [Host label](http://docs.rancher.com/rancher/latest/en/rancher-ui/infrastructure/hosts/#host-labels) of `openstack=compute` 
  * KVM enabled
