@@ -1,6 +1,9 @@
 .catalog:
     name: Openstack
     version: 2.0.1-rancher1
+    projectURL: "https://github.com/rancher/kolla/tree/rancher-mitaka"
+    description: \|
+        Openstack Mitaka release.
     questions:
         - variable: "openstack_internal_vip_address"
           type: string
